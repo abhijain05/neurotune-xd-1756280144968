@@ -1,0 +1,94 @@
+{
+  "products": [
+    {
+      "id": "PROD-1001",
+      "name": "Laser Professional Eco",
+      "description": "Print 2400 dpi image quality",
+      "category": "Laser Printer",
+      "price": 2963.1,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/laser_pro.jpg"
+    },
+    {
+      "id": "PROD-1002",
+      "name": "Laser Basic",
+      "description": "Up to 22 ppm color or 26 ppm mono",
+      "category": "Laser Printer",
+      "price": 583.1,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/laser_basic.jpg"
+    },
+    {
+      "id": "PROD-1003",
+      "name": "Laser Allround",
+      "description": "Print up to 25 ppm letter or A4",
+      "category": "Laser Printer",
+      "price": 830.62,
+      "inventoryStatus": "Low Stock",
+      "imageUrl": "/images/laser_allround.jpg"
+    },
+    {
+      "id": "PROD-1004",
+      "name": "Ultra Jet Super Color",
+      "description": "4800 dpi x 1200 dpi - up to 42 ppm",
+      "category": "Inkjet Printer",
+      "price": 330.82,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/ultrajet_supercolor.jpg"
+    },
+    {
+      "id": "PROD-1005",
+      "name": "Ultra Jet Mobile",
+      "description": "1000 dpi x 1000 dpi - up to 12 ppm",
+      "category": "Inkjet Printer",
+      "price": 117.81,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/ultrajet_mobile.jpg"
+    },
+    {
+      "id": "PROD-1006",
+      "name": "Ultra Jet Super Highspeed",
+      "description": "4800 dpi x 1200 dpi - up to 42 ppm",
+      "category": "Inkjet Printer",
+      "price": 404.6,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/ultrajet_highspeed.jpg"
+    },
+    {
+      "id": "PROD-1007",
+      "name": "Multi Print",
+      "description": "1000 dpi x 1000 dpi - up to 12 ppm",
+      "category": "Multifunction Printer",
+      "price": 117.81,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/multiprint.jpg"
+    },
+    {
+      "id": "PROD-1008",
+      "name": "Multi Color",
+      "description": "1200 dpi x 1200 dpi - up to 16 ppm",
+      "category": "Multifunction Printer",
+      "price": 28322,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/multicolor.jpg"
+    },
+    {
+      "id": "PROD-1009",
+      "name": "Black Ink Cartridge",
+      "description": "High-yield black ink cartridge",
+      "category": "Ink Cartridge",
+      "price": 25,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/blackink.jpg"
+    },
+    {
+      "id": "PROD-1010",
+      "name": "Color Ink Cartridge",
+      "description": "High-yield color ink cartridge",
+      "category": "Ink Cartridge",
+      "price": 35,
+      "inventoryStatus": "In Stock",
+      "imageUrl": "/images/colorink.jpg"
+    }
+  ]
+}

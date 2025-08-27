@@ -1,17 +1,206 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.m"
-  xmlns:layout="sap.ui.layout"
-  xmlns:form="sap.ui.layout.form"
-  xmlns:core="sap.ui.core"
-  xmlns:richtexteditor="sap.ui.richtexteditor"
-  xmlns:viz="sap.viz.ui5"
-  controllerName="preview.app.controller.SalesOrderOverviewView"
-  displayBlock="true">
-  <Page title="SalesOrderOverviewView" enableScrolling="true">
-    <content>
-      <Title id="title_875s1bsv" text="Overview: EPM Sales Order 500000032"/>
-      <Text id="layout_822gnec4"/>
-    </content>
-  </Page>
+<mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	controllerName="converted.salesorderoverviewview.controller.SalesOrderOverviewView"
+	displayBlock="true"
+          xmlns:commons="sap.ui.commons">
+	<Page title="Overview: EPM Sales Order 500000032" enableScrolling="true">
+		<headerContent>
+			<Toolbar>
+				<content>
+					<Button text="Delete" type="Reject" press=".onActionDelete" ariaLabel="Delete Sales Order"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://action-settings" type="Transparent" press=".onActionGlobalSettings" ariaLabel="Global Settings"/>
+					<Button icon="sap-icon://person-placeholder" type="Transparent" press=".onActionGlobalUser" ariaLabel="User Profile"/>
+					<Button icon="sap-icon://sys-help-2" type="Transparent" press=".onActionGlobalHelp" ariaLabel="Help"/>
+					<Button icon="sap-icon://full-screen" type="Transparent" press=".onActionGlobalFullScreen" ariaLabel="Full Screen"/>
+				</content>
+			</Toolbar>
+		</headerContent>
+		<content>
+			<Tray hasHeader="true" expanded="true" collapsible="true">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Sales Order Header" level="H2" />
+						<ToolbarSpacer />
+						<Link text="Edit" press=".onActionEditHeader" ariaLabel="Edit Sales Order Header" />
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<form:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1">
+						<form:content>
+							<form:FormElement label="Sales Order ID:">
+								<Input value="500000032" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Total Gross Amount:">
+								<layout:HorizontalLayout>
+									<Input value="5 631,08" editable="false" textAlign="End" width="100px"/>
+									<Text text="EUR"/>
+								</layout:HorizontalLayout>
+							</form:FormElement>
+							<form:FormElement label="SO Lifecycle Status:">
+								<Input value="New" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Total Net Amount:">
+								<layout:HorizontalLayout>
+									<Input value="4 732,00" editable="false" textAlign="End" width="100px"/>
+									<Text text="EUR"/>
+								</layout:HorizontalLayout>
+							</form:FormElement>
+							<form:FormElement label="SO Confirmation Status:">
+								<Input value="Initial" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Total Tax Amount:">
+								<layout:HorizontalLayout>
+									<Input value="899,08" editable="false" textAlign="End" width="100px"/>
+									<Text text="EUR"/>
+								</layout:HorizontalLayout>
+							</form:FormElement>
+							<form:FormElement label="SO Ordering Status:">
+								<Input value="Initial" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Opportunity ID:">
+								<Input value="" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Business Partner ID:">
+								<Input value="100000005" editable="false" />
+							</form:FormElement>
+							<form:FormElement label="Company Name:">
+								<layout:HorizontalLayout>
+									<Text text="TECUM" design="Bold" />
+									<Text text="AG" />
+								</layout:HorizontalLayout>
+							</form:FormElement>
+						</form:content>
+					</form:SimpleForm>
+					<layout:HorizontalLayout  width="100%" justifyContent="End">
+						<Link text="Cancel" press=".onActionCancelHeader" ariaLabel="Cancel Header Changes"/>
+						<Link text="Confirm" press=".onActionConfirm" ariaLabel="Confirm Sales Order" design="Emphasized"/>
+						<Link text="Goods Issue Created" press=".onActionGoodsIssueCreated" ariaLabel="Goods Issue Created"/>
+						<Link text="Invoice Created" press=".onActionInvoiceCreated" ariaLabel="Invoice Created"/>
+					</layout:HorizontalLayout>
+				</content>
+			</Tray>
+			<Tray hasHeader="true" expanded="true" collapsible="true">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="Sales Order Items" level="H2" />
+						<ToolbarSpacer />
+						<Button icon="sap-icon://add" text="Create" press=".onActionCreateItem" ariaLabel="Create Sales Order Item"/>
+						<Link text="Edit" press=".onActionEditItem" ariaLabel="Edit Sales Order Items"/>
+						<ToolbarSpacer />
+						<Button icon="sap-icon://search" type="Transparent" press=".onActionSearchTable" ariaLabel="Search Sales Order Items"/>
+						<Button icon="sap-icon://action-settings" type="Transparent" press=".onActionTableSettings" ariaLabel="Table Settings"/>
+						<Button icon="sap-icon://download" type="Transparent" press=".onExportToExcel" ariaLabel="Download Sales Order Items to Excel"/>
+						<Button icon="sap-icon://full-screen" type="Transparent" press=".onActionFullScreenTable" ariaLabel="Full Screen Table"/>
+					</Toolbar>
+				</headerToolbar>
+				<content>
+					<Toolbar id="tableFilterToolbar">
+						<Select items="{/salesOrderItems}" selectedKey="STANDARD">
+							<items>
+								<core:Item key="STANDARD" text="Standard *" />
+							</items>
+						</Select>
+					</Toolbar>
+					<Table id="salesOrderItemsTable" items="{path: 'orders>/salesOrderItems', sorter: {path: 'itemPosition', descending: false}}" selectionMode="Single">
+						<columns>
+							<Column width="80px">
+								<header>
+									<Text text="Actions" />
+								</header>
+								<template>
+									<layout:VerticalLayout>
+										<Button icon="sap-icon://delete" type="Reject" press=".onActionDeleteItem" ariaLabel="Delete Item"/>
+										<Link text="Details" press=".onActionDetailsItem" ariaLabel="View Item Details"/>
+									</layout:VerticalLayout>
+								</template>
+							</Column>
+							<Column width="80px">
+								<header>
+									<Text text="Sales Order Item P..." />
+								</header>
+								<template>
+									<Text text="{itemPosition}" />
+								</template>
+							</Column>
+							<Column width="120px">
+								<header>
+									<Text text="Total Gross Amount" />
+								</header>
+								<template>
+									<Text text="{totalGrossAmount}" textAlign="End" />
+								</template>
+							</Column>
+							<Column width="120px">
+								<header>
+									<Text text="Total Net Amount" />
+								</header>
+								<template>
+									<Text text="{totalNetAmount}" textAlign="End" />
+								</template>
+							</Column>
+							<Column width="120px">
+								<header>
+									<Text text="Total Tax Amount" />
+								</header>
+								<template>
+									<Text text="{totalTaxAmount}" textAlign="End" />
+								</template>
+							</Column>
+							<Column width="80px">
+								<header>
+									<Text text="ISO Currency Code" />
+								</header>
+								<template>
+									<Text text="{isoCurrencyCode}" />
+								</template>
+							</Column>
+							<Column width="120px">
+								<header>
+									<Text text="SO Item ATP Status" />
+								</header>
+								<template>
+									<Text text="{soItemATPStatus}" />
+								</template>
+							</Column>
+							<Column width="100px">
+								<header>
+									<Text text="Product ID" />
+								</header>
+								<template>
+									<Text text="{productId}" />
+								</template>
+							</Column>
+							<Column width="200px">
+								<header>
+									<Text text="Product Name" />
+								</header>
+								<template>
+									<Text text="{productName}" />
+								</template>
+							</Column>
+							<Column width="*">
+								<header>
+									<Text text="Product Description" />
+								</header>
+								<template>
+									<Text text="{productDescription}" />
+								</template>
+							</Column>
+						</columns>
+					</Table>
+				</content>
+			</Tray>
+			<Toolbar design="Footer">
+				<MessageArea id="footerMessageArea" type="Information" text="{messages>/messages/0/counter}" icon="sap-icon://message-information"/>
+				<ToolbarSpacer/>
+				<Button text="Save" press=".onActionSave" ariaLabel="Save Sales Order" design="Emphasized"/>
+				<Button text="Cancel" press=".onActionCancelFooter" ariaLabel="Cancel Sales Order"/>
+			</Toolbar>
+		</content>
+	</Page>
 </mvc:View>

@@ -1,0 +1,94 @@
+{
+  "customers": [
+    {
+      "id": "CUST-10001",
+      "fullName": "John Doe",
+      "email": "john.doe@example.com",
+      "phone": "+1-555-123-4567",
+      "address": "123 Main St, Anytown, CA 91234",
+      "creationDate": "2023-10-26",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10002",
+      "fullName": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "+1-555-987-6543",
+      "address": "456 Oak Ave, Anytown, CA 91234",
+      "creationDate": "2023-10-27",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10003",
+      "fullName": "Peter Jones",
+      "email": "peter.jones@example.com",
+      "phone": "+1-555-111-2222",
+      "address": "789 Pine Ln, Anytown, CA 91234",
+      "creationDate": "2023-10-28",
+      "status": "Inactive"
+    },
+    {
+      "id": "CUST-10004",
+      "fullName": "Mary Brown",
+      "email": "mary.brown@example.com",
+      "phone": "+1-555-333-4444",
+      "address": "1011 Willow St, Anytown, CA 91234",
+      "creationDate": "2023-10-29",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10005",
+      "fullName": "David Lee",
+      "email": "david.lee@example.com",
+      "phone": "+1-555-555-6666",
+      "address": "1213 Maple Dr, Anytown, CA 91234",
+      "creationDate": "2023-10-30",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10006",
+      "fullName": "Sarah Wilson",
+      "email": "sarah.wilson@example.com",
+      "phone": "+1-555-777-8888",
+      "address": "1415 Birch Ave, Anytown, CA 91234",
+      "creationDate": "2023-10-31",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10007",
+      "fullName": "Thomas Garcia",
+      "email": "thomas.garcia@example.com",
+      "phone": "+1-555-999-0000",
+      "address": "1617 Cedar Ln, Anytown, CA 91234",
+      "creationDate": "2023-11-01",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10008",
+      "fullName": "Jessica Rodriguez",
+      "email": "jessica.rodriguez@example.com",
+      "phone": "+1-555-1212-1313",
+      "address": "1819 Walnut St, Anytown, CA 91234",
+      "creationDate": "2023-11-02",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10009",
+      "fullName": "Christopher Williams",
+      "email": "christopher.williams@example.com",
+      "phone": "+1-555-1414-1515",
+      "address": "2021 Elm Ave, Anytown, CA 91234",
+      "creationDate": "2023-11-03",
+      "status": "Active"
+    },
+    {
+      "id": "CUST-10010",
+      "fullName": "Ashley Martinez",
+      "email": "ashley.martinez@example.com",
+      "phone": "+1-555-1616-1717",
+      "address": "2223 Oak St, Anytown, CA 91234",
+      "creationDate": "2023-11-04",
+      "status": "Active"
+    }
+  ]
+}

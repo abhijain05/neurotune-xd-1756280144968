@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebDynpro xmlns="http://www.sap.com/wd/webdynpro">
+  <View name="SalesOrderOverview">
+    <Title>Overview: EPM Sales Order 500000032</Title>
+    <Layout>
+      <VerticalFlowLayout id="mainLayout">
+        <!-- Top Toolbar with Global Actions -->
+        <Toolbar id="topToolbar">
+          <ToolbarItem id="deleteButtonToolbarItem">
+            <Button id="deleteButton" text="Delete" design="Transparent" onAction="onActionDelete"/>
+          </ToolbarItem>
+          <ToolbarSpacer id="topToolbarSpacer"/>
+          <ToolbarItem id="settingsIconToolbarItem">
+            <Button id="settingsIcon" icon="sap-icon://action-settings" tooltip="Settings" design="Transparent" onAction="onActionGlobalSettings"/>
+          </ToolbarItem>
+          <ToolbarItem id="userIconToolbarItem">
+            <Button id="userIcon" icon="sap-icon://person-placeholder" tooltip="User" design="Transparent" onAction="onActionGlobalUser"/>
+          </ToolbarItem>
+          <ToolbarItem id="helpIconToolbarItem">
+            <Button id="helpIcon" icon="sap-icon://sys-help-2" tooltip="Help" design="Transparent" onAction="onActionGlobalHelp"/>
+          </ToolbarItem>
+          <ToolbarItem id="fullScreenIconToolbarItem">
+            <Button id="fullScreenIcon" icon="sap-icon://full-screen" tooltip="Full Screen" design="Transparent" onAction="onActionGlobalFullScreen"/>
+          </ToolbarItem>
+        </Toolbar>
+
+        <!-- Sales Order Header Section -->
+        <Tray id="salesOrderHeaderTray" hasHeader="true" collapsible="true" expanded="true">
+          <HeaderData>
+            <Toolbar id="salesOrderHeaderTitleToolbar">
+              <ToolbarItem id="salesOrderHeaderTitleItem">
+                <TextView id="salesOrderHeaderTitle" text="Sales Order Header" design="Bold"/>
+              </ToolbarItem>
+              <ToolbarSpacer id="salesOrderHeaderToolbarSpacer"/>
+              <ToolbarItem id="salesOrderHeaderEditItem">
+                <Link id="editHeaderLink" text="Edit" onAction="onActionEditHeader"/>
+              </ToolbarItem>
+            </Toolbar>
+          </HeaderData>
+          <Content>
+            <FormContainer id="salesOrderHeaderForm" columnCount="2">
+              <FormElement id="salesOrderIdElement">
+                <Label id="salesOrderIdLabel" text="Sales Order ID:"/>
+                <InputField id="salesOrderIdField" value="500000032" readOnly="true" enabled="false" width="100%" />
+              </FormElement>
+              <FormElement id="totalGrossAmountElement">
+                <Label id="totalGrossAmountLabel" text="Total Gross Amount:"/>
+                <HorizontalFlowLayout id="totalGrossAmountLayout">
+                  <InputField id="totalGrossAmountField" value="5 631,08" readOnly="true" enabled="false" textDirection="RTL" width="100px"/>
+                  <TextView id="totalGrossAmountCurrency" text="EUR" design="Standard" semanticColor="Standard"/>
+                  <Button id="grossAmountCurrencyUnitButton" icon="sap-icon://drop-down-list" design="Transparent" enabled="false" tooltip="Change Currency Unit" />
+                </HorizontalFlowLayout>
+              </FormElement>
+
+              <FormElement id="soLifecycleStatusElement">
+                <Label id="soLifecycleStatusLabel" text="SO Lifecycle Status:"/>
+                <InputField id="soLifecycleStatusField" value="New" readOnly="true" enabled="false" width="100%"/>
+              </FormElement>
+              <FormElement id="totalNetAmountElement">
+                <Label id="totalNetAmountLabel" text="Total Net Amount:"/>
+                <HorizontalFlowLayout id="totalNetAmountLayout">
+                  <InputField id="totalNetAmountField" value="4 732,00" readOnly="true" enabled="false" textDirection="RTL" width="100px"/>
+                  <TextView id="totalNetAmountCurrency" text="EUR" design="Standard" semanticColor="Standard"/>
+                </HorizontalFlowLayout>
+              </FormElement>
+
+              <FormElement id="soConfirmationStatusElement">
+                <Label id="soConfirmationStatusLabel" text="SO Confirmation Status:"/>
+                <InputField id="soConfirmationStatusField" value="Initial" readOnly="true" enabled="false" width="100%"/>
+              </FormElement>
+              <FormElement id="totalTaxAmountElement">
+                <Label id="totalTaxAmountLabel" text="Total Tax Amount:"/>
+                <HorizontalFlowLayout id="totalTaxAmountLayout">
+                  <InputField id="totalTaxAmountField" value="899,08" readOnly="true" enabled="false" textDirection="RTL" width="100px"/>
+                  <TextView id="totalTaxAmountCurrency" text="EUR" design="Standard" semanticColor="Standard"/>
+                </HorizontalFlowLayout>
+              </FormElement>
+
+              <FormElement id="soOrderingStatusElement">
+                <Label id="soOrderingStatusLabel" text="SO Ordering Status:"/>
+                <InputField id="soOrderingStatusField" value="Initial" readOnly="true" enabled="false" width="100%"/>
+              </FormElement>
+              <FormElement id="opportunityIdElement">
+                <Label id="opportunityIdLabel" text="Opportunity ID:"/>
+                <InputField id="opportunityIdField" value="" readOnly="true" enabled="false" width="100%"/>
+              </FormElement>
+
+              <FormElement id="businessPartnerIdElement">
+                <Label id="businessPartnerIdLabel" text="Business Partner ID:"/>
+                <InputField id="businessPartnerIdField" value="100000005" readOnly="true" enabled="false" width="100%"/>
+              </FormElement>
+              <FormElement id="companyNameElement">
+                <Label id="companyNameLabel" text="Company Name:"/>
+                <HorizontalFlowLayout id="companyNameLayout">
+                  <TextView id="companyNameField1" text="TECUM" design="Bold"/>
+                  <TextView id="companyNameField2" text="AG" design="Standard"/>
+                </HorizontalFlowLayout>
+              </FormElement>
+            </FormContainer>
+
+            <!-- Header Action Links -->
+            <HorizontalFlowLayout id="headerActionLinks" horizontalAlign="Right" paddingLeft="0" paddingRight="0" paddingTop="0" paddingBottom="0" vGutter="10px">
+              <Link id="cancelHeaderLink" text="Cancel" onAction="onActionCancelHeader"/>
+              <Link id="confirmLink" text="Confirm" design="Emphasized" onAction="onActionConfirm"/>
+              <Link id="goodsIssueCreatedLink" text="Goods Issue Created" onAction="onActionGoodsIssueCreated"/>
+              <Link id="invoiceCreatedLink" text="Invoice Created" onAction="onActionInvoiceCreated"/>
+            </HorizontalFlowLayout>
+          </Content>
+        </Tray>
+
+        <!-- Sales Order Items Section -->
+        <Tray id="salesOrderItemsTray" hasHeader="true" collapsible="true" expanded="true">
+          <HeaderData>
+            <Toolbar id="salesOrderItemsTitleToolbar">
+              <ToolbarItem id="salesOrderItemsTitleItem">
+                <TextView id="salesOrderItemsTitle" text="Sales Order Items" design="Bold"/>
+              </ToolbarItem>
+              <ToolbarItem id="salesOrderItemsCreateItem">
+                <Button id="createItemButton" icon="sap-icon://add" text="Create" design="Transparent" onAction="onActionCreateItem"/>
+              </ToolbarItem>
+              <ToolbarItem id="salesOrderItemsEditItem">
+                <Link id="editItemLink" text="Edit" onAction="onActionEditItem"/>
+              </ToolbarItem>
+              <ToolbarSpacer id="salesOrderItemsDetailToolbarSpacer"/>
+              <ToolbarItem id="tableSearchItem">
+                <Button id="tableSearchButton" icon="sap-icon://search" tooltip="Search" design="Transparent" onAction="onActionSearchTable"/>
+              </ToolbarItem>
+              <ToolbarItem id="tableSettingsItem">
+                <Button id="tableSettingsButton" icon="sap-icon://action-settings" tooltip="Table Settings" design="Transparent" onAction="onActionTableSettings"/>
+              </ToolbarItem>
+              <ToolbarItem id="tableDownloadItem">
+                <Button id="tableDownloadButton" icon="sap-icon://download" tooltip="Download" design="Transparent" onAction="onActionDownloadTable"/>
+              </ToolbarItem>
+              <ToolbarItem id="tableFullScreenItem">
+                <Button id="tableFullScreenButton" icon="sap-icon://full-screen" tooltip="Full Screen" design="Transparent" onAction="onActionFullScreenTable"/>
+              </ToolbarItem>
+            </Toolbar>
+          </HeaderData>
+          <Content>
+            <!-- Table Filter Toolbar (e.g., "Standard *") -->
+            <Toolbar id="tableFilterToolbar">
+              <ToolbarItem id="standardFilterItem">
+                <DropDownByIndex id="standardFilterDropdown" width="120px" tooltip="Standard Filter" selectedKey="STANDARD">
+                    <ListItem text="Standard *" key="STANDARD" />
+                </DropDownByIndex>
+              </ToolbarItem>
+              <ToolbarItem id="standardFilterCloseItem">
+                <Button id="standardFilterCloseButton" icon="sap-icon://decline" design="Transparent" tooltip="Close Filter"/>
+              </ToolbarItem>
+            </Toolbar>
+
+            <!-- Sales Order Items Table -->
+            <Table id="salesOrderItemsTable" dataSource="{/salesOrderItems}" selectionMode="SingleRow" visibleRowCount="8">
+              <Columns>
+                <Column id="actionColumn" width="80px">
+                  <Header>
+                    <TextView id="actionColumnHeader" text="Actions"/>
+                  </Header>
+                  <Template>
+                    <HorizontalFlowLayout id="actionCellLayout">
+                      <Image id="deleteItemIcon" src="sap-icon://delete" tooltip="Delete Item" onAction="onActionDeleteItem"/>
+                      <Link id="detailsItemLink" text="Details" onAction="onActionDetailsItem"/>
+                    </HorizontalFlowLayout>
+                  </Template>
+                </Column>
+                <Column id="itemPositionColumn" width="80px">
+                  <Header>
+                    <TextView id="itemPositionColumnHeader" text="Sales Order Item P..."/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemPositionField" text="{itemPosition}"/>
+                  </Template>
+                </Column>
+                <Column id="totalGrossAmountColumn" width="120px">
+                  <Header>
+                    <TextView id="totalGrossAmountColumnHeader" text="Total Gross Amount"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemTotalGrossAmount" text="{totalGrossAmount}" textAlign="Right"/>
+                  </Template>
+                </Column>
+                <Column id="totalNetAmountColumn" width="120px">
+                  <Header>
+                    <TextView id="totalNetAmountColumnHeader" text="Total Net Amount"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemTotalNetAmount" text="{totalNetAmount}" textAlign="Right"/>
+                  </Template>
+                </Column>
+                <Column id="totalTaxAmountColumn" width="120px">
+                  <Header>
+                    <TextView id="totalTaxAmountColumnHeader" text="Total Tax Amount"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemTotalTaxAmount" text="{totalTaxAmount}" textAlign="Right"/>
+                  </Template>
+                </Column>
+                <Column id="isoCurrencyCodeColumn" width="80px">
+                  <Header>
+                    <TextView id="isoCurrencyCodeColumnHeader" text="ISO Currency Code"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemIsoCurrencyCode" text="{isoCurrencyCode}"/>
+                  </Template>
+                </Column>
+                <Column id="soItemATPStatusColumn" width="120px">
+                  <Header>
+                    <TextView id="soItemATPStatusColumnHeader" text="SO Item ATP Status"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemATPStatus" text="{soItemATPStatus}"/>
+                  </Template>
+                </Column>
+                <Column id="productIdColumn" width="100px">
+                  <Header>
+                    <TextView id="productIdColumnHeader" text="Product ID"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemProductId" text="{productId}"/>
+                  </Template>
+                </Column>
+                <Column id="productNameColumn" width="200px">
+                  <Header>
+                    <TextView id="productNameColumnHeader" text="Product Name"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemProductName" text="{productName}"/>
+                  </Template>
+                </Column>
+                <Column id="productDescriptionColumn" width="*">
+                  <Header>
+                    <TextView id="productDescriptionColumnHeader" text="Product Description"/>
+                  </Header>
+                  <Template>
+                    <TextView id="itemProductDescription" text="{productDescription}"/>
+                  </Template>
+                </Column>
+              </Columns>
+            </Table>
+          </Content>
+        </Tray>
+
+        <!-- Footer Toolbar -->
+        <Toolbar id="footerToolbar" design="Footer">
+          <ToolbarItem id="messageAreaItem">
+            <MessageArea id="footerMessageArea" type="Information" text="0" icon="sap-icon://message-information"/>
+          </ToolbarItem>
+          <ToolbarSpacer id="footerToolbarSpacer"/>
+          <ToolbarItem id="saveButtonItem">
+            <Button id="saveButton" text="Save" design="Emphasized" onAction="onActionSave"/>
+          </ToolbarItem>
+          <ToolbarItem id="cancelButtonItem">
+            <Button id="cancelButton" text="Cancel" onAction="onActionCancelFooter"/>
+          </ToolbarItem>
+        </Toolbar>
+      </VerticalFlowLayout>
+    </Layout>
+  </View>
+
+  <Controller name="SalesOrderOverviewController">
+    <!-- Event Handlers for UI Interactions -->
+    <Method name="onActionDelete" description="Handles action for 'Delete' button in top toolbar."/>
+    <Method name="onActionGlobalSettings" description="Handles action for global settings icon."/>
+    <Method name="onActionGlobalUser" description="Handles action for global user icon."/>
+    <Method name="onActionGlobalHelp" description="Handles action for global help icon."/>
+    <Method name="onActionGlobalFullScreen" description="Handles action for global full screen icon."/>
+
+    <Method name="onActionEditHeader" description="Handles action for 'Edit' link in Sales Order Header."/>
+    <Method name="onActionCancelHeader" description="Handles action for 'Cancel' link below header."/>
+    <Method name="onActionConfirm" description="Handles action for 'Confirm' link below header."/>
+    <Method name="onActionGoodsIssueCreated" description="Handles action for 'Goods Issue Created' link below header."/>
+    <Method name="onActionInvoiceCreated" description="Handles action for 'Invoice Created' link below header."/>
+
+    <Method name="onActionCreateItem" description="Handles action for 'Create' button in Sales Order Items toolbar."/>
+    <Method name="onActionEditItem" description="Handles action for 'Edit' link in Sales Order Items toolbar."/>
+    <Method name="onActionSearchTable" description="Handles action for table search icon."/>
+    <Method name="onActionTableSettings" description="Handles action for table settings icon."/>
+    <Method name="onActionDownloadTable" description="Handles action for table download icon."/>
+    <Method name="onActionFullScreenTable" description="Handles action for table full screen icon."/>
+    <Method name="onActionDetailsItem" description="Handles action for 'Details' link in table row."/>
+    <Method name="onActionDeleteItem" description="Handles action for delete icon in table row."/>
+
+    <Method name="onActionSave" description="Handles action for 'Save' button in footer."/>
+    <Method name="onActionCancelFooter" description="Handles action for 'Cancel' button in footer."/>
+  </Controller>
+</WebDynpro>

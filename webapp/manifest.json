@@ -34,7 +34,8 @@
       "minUI5Version": "1.65.6",
       "libs": {
         "sap.ui.core": {},
-        "sap.m": {}
+        "sap.m": {},
+        "sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -61,7 +62,7 @@
       },
       "routes": [
         {
-          "name": "main",
+          "name": "RouteMain",
           "pattern": "",
           "target": [
             "main"
